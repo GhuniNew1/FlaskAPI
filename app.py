@@ -1,7 +1,7 @@
 # Server Side
 from flask import Flask
 from flask_restful import Api,Resource,abort,reqparse,marshal_with,fields
-from flask_sqlalchemy import SQLAlchemy,Model
+from flask_sqlalchemy import SQLAlchemy
 app=Flask(__name__)
 
 # #database
@@ -31,7 +31,6 @@ data1_add_args=reqparse.RequestParser()
 data1_add_args.add_argument("name",type=str,help="กรุณาระบุที่ต้องการแก้ไข")
 data1_add_args.add_argument("title",type=str,help="กรุณาระบุที่ต้องการแก้ไข")
 data1_add_args.add_argument("imgurl",type=str,help="กรุณาระบุที่ต้องการแก้ไข")
-
 
 resource_field={
     "id":fields.Integer,
@@ -104,4 +103,4 @@ api.add_resource(Data1Test,"/api/<int:data1_id>")
 api.add_resource(Data2Test,"/api")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
